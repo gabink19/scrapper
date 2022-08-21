@@ -40,6 +40,8 @@ class Guzzle {
 
     public function getCurl($url)
     {
+        $url        = urlencode($url);
+        $user_agent = "Googlebot/2.1 (http://www.googlebot.com/bot.html)";
         $client = new \GuzzleHttp\Client([
             'verify' => false,
             'timeout' => 5, // Response timeout
@@ -47,6 +49,7 @@ class Guzzle {
             'peer' => false
         ]);
         $client->request('GET', $url, [
+                'headers' => ['User-Agent' => $user_agent, 'Accept-Encoding' => 'gzip'],
                 'timeout' => 10, // Response timeout
                 'connect_timeout' => 10, // Connection timeout
         ]);

@@ -16,7 +16,7 @@ use App\Http\Controllers\TokpedToolsController;
 */
 
 Route::get('/', function () {
-    // return view('welcome');
+    echo phpinfo();
 });
 
 Route::get('/test',[TokpedToolsController::class, 'getListProductCurl']);

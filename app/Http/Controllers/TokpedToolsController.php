@@ -82,7 +82,7 @@ class TokpedToolsController extends Controller
     	$page = 1;
         while (true) {
     		$count 		= 0;
-    		$fullUrl	= $url."/page/".$page."?perpage=200&sort".self::tokpedSortArray($sort);
+    		$fullUrl	= $url."/page/".$page."?perpage=200&sort=".self::tokpedSortArray($sort);
         	$content 	= self::file_get_html($fullUrl);
 	        $mainUrl 	= 'https://www.tokopedia.com/';
 	        $listprod 	= $content->find('div[data-testid="master-product-card"] div div div a');
@@ -141,7 +141,7 @@ class TokpedToolsController extends Controller
     	$page = 1;
         while (true) {
     		$count 		= 0;
-    		$fullUrl	= $url."/page/".$page."?perpage=10&sort".self::tokpedSortArray($sort);
+    		$fullUrl	= $url."/page/".$page."?perpage=10&sort=".self::tokpedSortArray($sort);
     		$check = Guzzle::getCurl($fullUrl);
     		echo "<pre>";print_r($check); echo "</pre>";die();
     		die();
