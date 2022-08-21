@@ -51,6 +51,9 @@ class Controller extends BaseController
             $defaultSpanText
         );
 
+        $opts = array('http'=>array('header' => "User-Agent:MyAgent/1.0\r\n")); 
+        //Basically adding headers to the request
+        $context = stream_context_create($opts);
         /**
          * For sourceforge users: uncomment the next line and comment the
          * retrieve_url_contents line 2 lines down if it is not already done.
