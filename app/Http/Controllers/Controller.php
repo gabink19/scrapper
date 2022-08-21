@@ -53,12 +53,13 @@ class Controller extends BaseController
 
         $options = array(
             'http' => array(
-                'header'  => "Content-type: application/x-www-form-urlencoded\r\n",
+                'header'  => "User-Agent:MyAgent/1.0\r\n",
                 'method'  => "GET",
                 'timeout' => 30,
+                'ignore_errors' => true,
             ),
         );
-        
+
         $context = stream_context_create($options);
         /**
          * For sourceforge users: uncomment the next line and comment the

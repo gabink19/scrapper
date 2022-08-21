@@ -40,20 +40,17 @@ class Guzzle {
 
     public function getCurl($url)
     {
-        $url        = urlencode($url);
-        $user_agent = "Googlebot/2.1 (http://www.googlebot.com/bot.html)";
-        $client = new \GuzzleHttp\Client([
-            'verify' => false,
-            'timeout' => 5, // Response timeout
-            'connect_timeout' => 5, // Connection timeout
-            'peer' => false
-        ]);
-        $client->request('GET', $url, [
-                'headers' => ['User-Agent' => $user_agent, 'Accept-Encoding' => 'gzip'],
-                'timeout' => 10, // Response timeout
-                'connect_timeout' => 10, // Connection timeout
-        ]);
-        return $client->getBody()->getContents();
+        $ch = curl_init();
+        curl_setopt($ch, CURLOPT_URL, $url);
+        curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
+        curl_setopt($ch, CURLOPT_USERAGENT, "Googlebot/2.1 (http://www.googlebot.com/bot.html)");
+        curl_setopt($ch, CURLOPT_HTTPHEADER, array('Content-Type: text/html'));
+        curl_setopt($ch, CURLOPT_CONNECTTIMEOUT, 60); 
+        curl_setopt($ch, CURLOPT_TIMEOUT, 60); //timeout in seconds
+        $data = curl_exec($ch);
+        curl_close($ch);
+
+        return $data;
     }
 
     public function deleteGuzzleRequest($url)

@@ -132,7 +132,7 @@ class TokpedToolsController extends Controller
         return $response;
     }
 
-    public function getListProductCurl($url='https://www.tokopedia.com/eseskomputer/product', $sort='paling_sesuai') 
+    public function getListProductCurl($url='https://www.tokopedia.com/nestle-indonesia/product', $sort='paling_sesuai') 
     {
     	$response = [];
     	$response['items'] = [];
