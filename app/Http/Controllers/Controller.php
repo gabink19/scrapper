@@ -53,7 +53,7 @@ class Controller extends BaseController
 
         $options = array(
             'http' => array(
-                'header'  => "User-Agent:MyAgent/1.0\r\n",
+                'header'  => "User-Agent:Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/104.0.0.0 Safari/537.36",
                 'method'  => "GET",
                 'timeout' => 30,
                 'ignore_errors' => true,
