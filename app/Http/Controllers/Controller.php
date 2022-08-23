@@ -53,13 +53,17 @@ class Controller extends BaseController
 
         $options = array(
             'http' => array(
-                'header'  => "User-Agent:Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/104.0.0.0 Safari/537.36",
+                'header'  => ['accept:application/json, text/javascript, */*; q=0.01',
+                            'accept-language:en-US,en;q=0.8,id;q=0.6,ms;q=0.4',
+                            'origin:https://www.tokopedia.com',
+                            'referer:'.$url,
+                            'user-agent:Mozilla/5.0 (Windows NT 10.0; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/52.0.2743.116 Safari/537.36',
+                            'Content-length: 600000',
+                ],
                 'method'  => "GET",
-                'timeout' => 30,
-                'ignore_errors' => true,
+                'timeout' => 60,
             ),
         );
-
         $context = stream_context_create($options);
         /**
          * For sourceforge users: uncomment the next line and comment the
@@ -100,11 +104,10 @@ class Controller extends BaseController
             $defaultSpanText
         );
 
-        if (empty($str) || strlen($str) > 600000) {
-            $dom->clear();
-            return false;
-        }
-
+        // if (empty($str) || strlen($str) > 600000) {
+        //     $dom->clear();
+        //     return false;
+        // }
         return $dom->load($str, $lowercase, $stripRN);
     }
 

@@ -1,5 +1,6 @@
 <?php
 namespace App\Helper;
+
 use App\Helper\HtmlDomParserNodes;
 /**
  * Website: http://sourceforge.net/projects/simplehtmldom/

@@ -28,4 +28,5 @@ Route::group(['prefix' => 'tokped'], function(){
     Route::get('/scrapPerProduct',[TokpedToolsController::class, 'scrapPerProduct']);
     Route::get('/getListProduct',[TokpedToolsController::class, 'getListProduct']);
     Route::get('/getSellerCategory',[TokpedToolsController::class, 'getSellerCategory']);
+    Route::post('/exportScrap',[TokpedToolsController::class, 'exportScrap']);
 });
