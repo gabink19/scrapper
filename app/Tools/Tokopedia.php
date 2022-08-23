@@ -106,8 +106,9 @@ class Tokopedia
             $detail = $filler['detail'];
             $harga = ($detail['harga_asli']=='')?$detail['harga_produk']:$detail['harga_asli'];
             $harga = str_replace('Rp', '', $harga);
-            $harga = (int)str_replace('.', '', $harga);
-            $harga = round($harga*$request['mark_up']);
+            $harga_asli= (int)str_replace('.', '', $harga);
+            $mark_up = round($harga_asli*$request['mark_up'])/100;
+            $harga = $harga_asli+$mark_up;
             $gambar = [];
             foreach($detail['url_gambar'] as $k => $val){
                 $gambar[$k] = $val;

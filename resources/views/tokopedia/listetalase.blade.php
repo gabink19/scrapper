@@ -12,6 +12,7 @@
                     <div class="table-data__tool">
                         <div class="table-data__tool-left">
                             @php
+                                $url_product = str_replace('/product','',$url_product).'/product';
                                 $url = base64_encode($url_product);
                             @endphp
                             <a class="au-btn au-btn-icon au-btn--green au-btn--small" href="#" role="button" data-toggle="modal" data-target="#myModal" onclick="scrapeFunc('semua','{{$url}}')" data-backdrop="static" data-keyboard="false"><i class="fa fa-copy fa-lg"></i>&nbsp;Scrape Semua Produk</a>
